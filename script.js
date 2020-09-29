@@ -26,6 +26,7 @@
     img.setAttribute('src', `https://picsum.photos/seed/${seed}/800`);
     img.setAttribute('alt', alt);
     img.classList.add('image-view-image');
+    img.addEventListener('load', e => e.target.style.opacity = 1);
     imageView.appendChild(img);
     imageView.classList.add('image-view-active');
   }
