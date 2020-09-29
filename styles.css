@@ -51,10 +51,6 @@ body {
   cursor: pointer;
 }
 
-.image:hover {
-  transform: scale(1.2);
-}
-
 .image-view {
   position: fixed;
   top: 0;
@@ -83,6 +79,11 @@ body {
   max-height: 100%;
 }
 
+@media(pointer: fine) {
+  .image:hover {
+    transform: scale(1.2);
+  }
+}
 
 @media(min-width: 600px) {
   .gallery { grid-template-columns: repeat(2, 1fr) }
