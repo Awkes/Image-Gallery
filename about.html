@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./styles.css" rel="stylesheet" />
+  <title>Image Gallery - About</title>
+</head>
+
+<body>
+  <div class="about">
+    <header class="header">
+      <nav class="nav">
+        <button class="burger">
+          ☰
+        </button>
+        <ul class="menu">
+          <li class="menu-item"><a href="./index.html" class="menu-link">Gallery</a></li>
+          <li class="menu-item"><a href="./about.html" class="menu-link menu-link-active">About</a></li>
+        </ul>
+      </nav>
+      <h1 class="heading">About</h1>
+    </header>
+
+    <div class="image-container">
+      <img src="https://picsum.photos/600" alt="Random Image" class="image">
+    </div>
+
+    <main class="about-text">
+      <div>
+        <p>
+          This is simple image gallery that i built while attending the Fullstack JavaScript Higher
+          Vocational Education at
+          <a href="https://www.molndal.se/campus-molndal.html" target="_blank">Campus Molndal</a>.
+        </p>
+        <p>
+          I built this to demonstrate my knowledge in CSS grid, Media Queries and responsive behaviour.
+        </p>
+        <p>
+          The gallery is powered by images from
+          <a href="https://picsum.photos" target="_blank">Lorem Picsum</a>.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Created by:<br />
+        Andreas Akerlof
+      </p>
+    </footer>
+  </div>
+
+  <div class="image-view"></div>
+
+  <script src="./scripts/menu.js"></script>
+  <script src="./scripts/gallery.js"></script>
+</body>
+
+</html>

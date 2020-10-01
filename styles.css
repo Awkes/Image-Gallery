@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
 
 * { box-sizing: border-box }
+a { text-decoration: none }
 
 body {
   background-image: linear-gradient(skyblue, pink);
@@ -9,16 +10,70 @@ body {
   font-family: 'Nanum Brush Script', cursive;
 }
 
-.gallery {
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+}
+
+.burger {
+  border: 0;
+  padding: 10px;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  outline: 0;
+  transition: background-color ease-in-out .2s;
+}
+
+.burger:focus, .burger:hover { background-color: #eee; }
+
+.menu {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(255, 255, 255, .5);
+  transition: transform ease-in-out .2s;
+  transform: translateX(-100%);
+}
+
+.menu-item, .menu-link {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-link {
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #000;
+  transition: background-color ease-in-out .2s;
+}
+
+.menu-link:hover { background-color: #fff; }
+.menu-link-active { text-decoration: underline; }
+
+.burger:hover ~ .menu, .burger:focus ~ .menu, .menu:hover {
+  transform: translateX(0);
+}
+
+.gallery, .about {
   background-color: #fff;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 10px;
+  border: 10px solid #fff;
   gap: 10px;
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
-  grid-auto-flow: dense;
+  overflow: hidden;
 }
 
 .header, .footer { 
@@ -27,6 +82,7 @@ body {
   justify-content: center;
   background-image: linear-gradient(135deg, pink, skyblue);
   padding: 10px;
+  position: relative;
 }
 
 .footer {
@@ -48,8 +104,12 @@ body {
   display: block;
   width: 100%;
   transition: transform ease-in-out .2s;
-  cursor: pointer;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
+
+.gallery .image { cursor: pointer; }
 
 .image-view {
   position: fixed;
@@ -79,27 +139,40 @@ body {
   max-height: 100%;
 }
 
+.about-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24px;
+  padding: 30px;
+}
+
 @media(pointer: fine) {
-  .image:hover {
+  .gallery .image:hover {
     transform: scale(1.2);
   }
 }
 
 @media(min-width: 600px) {
-  .gallery { grid-template-columns: repeat(2, 1fr) }
+  .gallery, .about { grid-template-columns: repeat(2, 1fr) }
 }
 
 @media(min-width: 900px) {
-  .gallery { grid-template-columns: repeat(3, 1fr) }
-  .header { grid-column: 1 / 3 }
+  .gallery, .about { grid-template-columns: repeat(3, 1fr) }
+  .header, .about-text { grid-column: 1 / 3 }
 }
 
 @media(min-width: 1200px) {
-  .gallery { grid-template-columns: repeat(4, 1fr) }
+  .gallery, .about { grid-template-columns: repeat(4, 1fr) }
   .header { grid-row: 1 / 3 }
-  
-  .footer { 
-    grid-row: 7 / 9;
+
+  .footer { grid-column: 3 / 5 }
+  .gallery .footer { grid-row: 7 / 9 }
+  .about .footer, .about-text { grid-row: 3 / 5; }
+
+  .about .image-container { 
+    grid-row: 1 / 3;
     grid-column: 3 / 5;
   }
 }
